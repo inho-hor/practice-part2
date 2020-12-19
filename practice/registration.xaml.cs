@@ -15,21 +15,21 @@ using System.Windows.Shapes;
 namespace practice
 {
     /// <summary>
-    /// Логика взаимодействия для login.xaml
+    /// Логика взаимодействия для registration.xaml
     /// </summary>
-    public partial class login : Window
+    public partial class registration : Window
     {
-        public login()
+        public registration()
         {
             InitializeComponent();
         }
 
-        private void exit_Click(object sender, RoutedEventArgs e)
+        private void regButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void regexit_Click(object sender, RoutedEventArgs e)
         {
 
         }
