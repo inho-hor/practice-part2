@@ -19,68 +19,70 @@ namespace practice
     /// </summary>
     public partial class login : Window
     {
+        practiceEntities practiceEntities;
         static public int sw_roll = 0;
         public login()
         {
             InitializeComponent();
+            practiceEntities = new practiceEntities();
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        enum Roll
-        {
-            Manager,
-            Customer,
-            Admin,
-            Ware
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            using (practiceEntities practiceEntities = new practiceEntities())
             {
-                if (log_textbox.Text.Length > 0 && password_textbox.Password.Length > 0)
+                var login = log_textbox.Text;
+                var password = password_textbox.Password;
+                var user = practiceEntities.user;
+                var result = user.Where(i => i.login == login && i.password == password);
+                if (result.Count() > 0)
                 {
-                    practiceEntities practice_bd = new practiceEntities();
-                    var av = practice_bd.logins;
-                    Admin admin = new Admin();
-                    Customer customer = new Customer();
-                    Ware ware = new Ware();
-                    Manager manager = new Manager();
-                    var result = av.Where(i => i.login == log_textbox.Text && i.password == password_textbox.Password);
-                    if (result.Count() == 1)
+                    this.Hide();
+                    switch (result.FirstOrDefault().role)
                     {
-                        this.Close();
-                        sw_roll = (int)result.FirstOrDefault().rool;
-                        switch (sw_roll)
-                        {
-                            case (byte)Roll.Manager:
-                                manager.ShowDialog();
+                        case "admin":
+                            {
+                                admin admin = new admin();
+                                admin.Show();
                                 break;
-                            case (byte)Roll.Customer:
-                                customer.ShowDialog();
+                            }
+                        case "manager":
+                            {
+                                manager manager = new manager();
+                                manager.Show();
                                 break;
-                            case (byte)Roll.Admin:
-                                admin.ShowDialog();
+                            }
+                        case "ware":
+                            {
+                                ware ware = new ware();
+                                ware.Show();
                                 break;
-                            case (byte)Roll.Ware:
-                                ware.ShowDialog();
+                            }
+                        case "customer":
+                            {
+                                customer customer = new customer();
+                                customer.Show();
                                 break;
-                        }
+                            }
                     }
-                    else
-                        MessageBox.Show(string.Format("Не найдено данной комбинации\nЛогин - {0}\nПароль - {1}",
-                        log_textbox.Text, password_textbox.Password), "Предупреждение!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else if (login.Length == 0)
+                {
+                    MessageBox.Show("Вы не ввели логин.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else if (password.Length == 0)
+                {
+                    MessageBox.Show("Вы не ввели пароль.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
-                    MessageBox.Show("Поля Логин и Пароль - обязательны к заполнению!", "Ошибка!",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            catch (Exception msg)
-            {
-                MessageBox.Show(msg.Message);
+                {
+                    MessageBox.Show("Такой пользователь не найден.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
     }

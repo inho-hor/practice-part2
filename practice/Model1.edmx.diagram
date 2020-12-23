@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b454c2962a3b4cd6bdaa609c3000be29" Name="Diagram1">
+        <EntityTypeShape EntityType="practiceModel.cloth" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.clothWarehouse" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.customProducts" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.furniture" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.furnitureWarehouse" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.order" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.product" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.productFurniture" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="practiceModel.user" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="practiceModel.FK_clothWarehouse_cloth" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.FK_customProducts_product" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.FK_order_customProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.FK_furnitureWarehouse_furniture" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.FK_productFurniture_furniture" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.FK_order_user" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.FK_productFurniture_product" ManuallyRouted="false" />
+        <AssociationConnector Association="practiceModel.productCloth" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
