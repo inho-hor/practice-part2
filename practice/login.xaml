@@ -26,10 +26,13 @@
         <PasswordBox x:Name="password_textbox" HorizontalAlignment="Left" Margin="90,59,-220,-79"
                     ToolTip="Введите Ваш пароль" VerticalAlignment="Top" Width="123" FontSize="12" Height="22" />
 
-        <Button x:Name="login_stud" Content="Вход" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top"
+        <Button x:Name="login_stud" Content="Вход" HorizontalAlignment="Left" Margin="90,90,0,0" VerticalAlignment="Top"
                     Width="41" FontSize="12" Click="Button_Click" FontFamily="Georgia"/>
 
-        <Button x:Name="exit" Content="Отмена" HorizontalAlignment="Left" Margin="165,100,0,0" VerticalAlignment="Top"
+        <Button x:Name="regist_button" Content="Регистрация" HorizontalAlignment="Left" Margin="110,110,0,0" VerticalAlignment="Top"
+                    Width="80" FontSize="12" Click="registration_Click" FontFamily="Georgia"/>
+
+        <Button x:Name="exit" Content="Отмена" HorizontalAlignment="Left" Margin="160,90,0,0" VerticalAlignment="Top"
                     ToolTip="Нажмите для выхода" Width="52" FontSize="12" Click="exit_Click" FontFamily="Georgia" />
 
     </Grid>

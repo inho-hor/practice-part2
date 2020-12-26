@@ -85,5 +85,12 @@ namespace practice
                 }
             }
         }
+
+        private void registration_Click(object sender, RoutedEventArgs e)
+        {
+            registration reg = new registration();
+            this.Hide();
+            reg.Show();
+        }
     }
 }
