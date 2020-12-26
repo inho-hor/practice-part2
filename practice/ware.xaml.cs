@@ -23,5 +23,41 @@ namespace practice
         {
             InitializeComponent();
         }
+
+        private void exitClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void furnitureClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void productClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clothClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void cloth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void furniture_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
