@@ -16,20 +16,20 @@
                 </LinearGradientBrush>
             </Canvas.Background>
         </Canvas>
-        <Menu FontSize="14" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" BorderBrush="Black" Background="#222" 
+        <Menu FontSize="14" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" BorderBrush="Black" Background="#222" 
             BorderThickness="1,1,1,1">
             <MenuItem Header="Списки" Click="MenuItem_Click" Foreground="WhiteSmoke">
                 <MenuItem Header="Ткани" Click="clothClick" BorderBrush="Black" Background="#222"></MenuItem>
                 <MenuItem Header="Фурнитура" Click="furnitureClick" BorderBrush="Black" Background="#222"></MenuItem>
             </MenuItem>
             <Separator/>
-            <MenuItem Header="Выход" Click="exitClick"></MenuItem>
+            <MenuItem Header="Выход" Click="exitClick" Foreground="WhiteSmoke"  ></MenuItem>
         </Menu>
-        <DataGrid x:Name="cloth" Visibility="Visible" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+        <DataGrid x:Name="cloth" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
                   VerticalAlignment="Top" HorizontalAlignment="Left"
                   AutoGenerateColumns="False" CanUserAddRows="False" 
                   RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
-                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1" SelectionChanged="cloth_SelectionChanged">
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Рулон" Binding="{Binding Path-idRoll, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
                 <DataGridTextColumn Header="Ткань" Binding="{Binding Path-idCloth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
@@ -41,7 +41,7 @@
                   VerticalAlignment="Top" HorizontalAlignment="Left"
                   AutoGenerateColumns="False" CanUserAddRows="False" 
                   RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
-                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1" SelectionChanged="furniture_SelectionChanged">
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Партия" Binding="{Binding Path-idParty, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
                 <DataGridTextColumn Header="Фурнитура" Binding="{Binding Path-idFurniture, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="70"></DataGridTextColumn>

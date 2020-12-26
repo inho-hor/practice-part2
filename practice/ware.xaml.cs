@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,15 @@ namespace practice
     /// </summary>
     public partial class ware : Window
     {
+        practiceEntities practiceEntities;
         public ware()
         {
             InitializeComponent();
+            practiceEntities = new practiceEntities();
+            practiceEntities.clothWarehouse.Load();
+            cloth.ItemsSource = practiceEntities.clothWarehouse.Local.ToBindingList();
+            practiceEntities.furnitureWarehouse.Load();
+            furniture.ItemsSource = practiceEntities.furnitureWarehouse.Local.ToBindingList();
         }
 
         private void exitClick(object sender, RoutedEventArgs e)
@@ -31,17 +38,19 @@ namespace practice
 
         private void furnitureClick(object sender, RoutedEventArgs e)
         {
-
+            furniture.Visibility = Visibility.Visible;
+            cloth.Visibility = Visibility.Hidden;
+            var furnitureWareHouse = practiceEntities.furnitureWarehouse;
+            furniture.ItemsSource = furnitureWareHouse.ToList();
         }
 
-        private void productClick(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void clothClick(object sender, RoutedEventArgs e)
         {
-
+            cloth.Visibility = Visibility.Visible;
+            furniture.Visibility = Visibility.Hidden;
+            var clothWareHouse = practiceEntities.clothWarehouse;
+            cloth.ItemsSource = clothWareHouse.ToList();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -49,15 +58,5 @@ namespace practice
 
         }
 
-
-        private void cloth_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void furniture_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }
