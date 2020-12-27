@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +29,13 @@ namespace practice
 
         private void choose_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\Users";
 
+            openFileDialog.ShowDialog();
+            string text = openFileDialog.ToString();
+            text = text.Replace("Microsoft.Win32.OpenFileDialog: Title: , FileName: ", "");
+            name_textbox.Text = text; 
         }
 
         private void save_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
+using System.Data.Entity;
 
 namespace practice
 {
@@ -19,9 +21,15 @@ namespace practice
     /// </summary>
     public partial class constructor : Window
     {
+        practiceEntities practiceEntities;
         public constructor()
         {
             InitializeComponent();
+            practiceEntities = new practiceEntities();
+            practiceEntities.cloth.Load();
+            typeCloth_combobox.ItemsSource = practiceEntities.cloth.Local.ToBindingList();
+            practiceEntities.furniture.Load();
+            typeFur_combobox.ItemsSource = practiceEntities.furniture.Local.ToBindingList();
         }
 
         private void close_Click(object sender, RoutedEventArgs e)
@@ -38,7 +46,18 @@ namespace practice
 
         private void show_Click(object sender, RoutedEventArgs e)
         {
+            if (length_textbox.Text.Length == 0 || width_textbox.Text.Length == 0)
+            {
+                MessageBox.Show("Введите параметры");
+                return;
+            }
 
+            var length = Convert.ToDouble(length_textbox.Text.Trim());
+            var width = Convert.ToDouble(width_textbox.Text.Trim());
+            Rectangle rectangle = new Rectangle();
+            rectangle.Fill = Brushes.Gray;
+            rectangle.Width = width;
+            rectangle.Height = length;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

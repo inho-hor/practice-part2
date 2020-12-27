@@ -30,24 +30,24 @@
         
         <TextBlock HorizontalAlignment="Left" Margin="29,80,-91,49" TextWrapping="Wrap" Text="Тип ткани" VerticalAlignment="Top"
                     Height="20" Width="120" FontSize="12" FontFamily="Georgia"/>
-        <ComboBox Name="typeCloth_combobox" HorizontalAlignment="Left" Height="22" Margin="29,100,0,0"
+        <ComboBox Name="typeCloth_combobox" ItemsSource="{Binding}" IsEditable="True" DisplayMemberPath="drawing" HorizontalAlignment="Left" Height="22" Margin="29,100,0,0"
                     VerticalAlignment="Top" Width="148" FontSize="12"/>
         <Button x:Name="addCloth_but" Content="Добавить ткань" HorizontalAlignment="Left" Margin="80,130,0,0" VerticalAlignment="Top"
                     Width="95" FontSize="12" Height="22" Click="Button_Click" FontFamily="Georgia"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="29,200,-91,49" TextWrapping="Wrap" Text="Длина" VerticalAlignment="Top"
                     Height="20" Width="70" FontSize="12" FontFamily="Georgia"/>
-        <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="22" Margin="29,220,0,0" TextWrapping="Wrap"
+        <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="22" Margin="29,220,0,0" TextWrapping="Wrap"
                     ToolTip="Введите длину" VerticalAlignment="Top" Width="148" FontSize="12"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="29,250,-91,49" TextWrapping="Wrap" Text="Ширина" VerticalAlignment="Top"
                     Height="20" Width="70" FontSize="12" FontFamily="Georgia"/>
-        <TextBox x:Name="length_textbox" HorizontalAlignment="Left" Height="22" Margin="29,270,0,0" TextWrapping="Wrap"
-                    ToolTip="Введите длину" VerticalAlignment="Top" Width="148" FontSize="12"/>
+        <TextBox x:Name="width_textbox" HorizontalAlignment="Left" Height="22" Margin="29,270,0,0" TextWrapping="Wrap"
+                    ToolTip="Введите ширину" VerticalAlignment="Top" Width="148" FontSize="12"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="29,300,-91,49" TextWrapping="Wrap" Text="Тип фурнитуры" VerticalAlignment="Top"
                     Height="20" Width="100" FontSize="12" FontFamily="Georgia"/>
-        <ComboBox Name="typeFur_combobox" HorizontalAlignment="Left" Height="22" Margin="29,320,0,0"
+        <ComboBox Name="typeFur_combobox" ItemsSource="{Binding}" IsEditable="True" DisplayMemberPath="typeFurniture" HorizontalAlignment="Left" Height="22" Margin="29,320,0,0"
                     VerticalAlignment="Top" Width="148" FontSize="12"/>
 
         <Button x:Name="show_but" Content="Просмотр" HorizontalAlignment="Left" Margin="92,350,0,0" VerticalAlignment="Top"
