@@ -80,7 +80,9 @@ namespace practice
 
         private void constructorClick(object sender, RoutedEventArgs e)
         {
-
+            constructor constructor = new constructor();
+            this.Hide();
+            constructor.Show();
         }
 
         private void orderClick(object sender, RoutedEventArgs e)

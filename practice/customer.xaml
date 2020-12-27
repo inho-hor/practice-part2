@@ -30,7 +30,7 @@
                 <MenuItem Header="Заказы" Click="ordersClick" BorderBrush="Black" Background="#222"></MenuItem>
             </MenuItem>
             <Separator Width="3"/>
-            <MenuItem Header="Конструктор" Click="constructorClick" Foreground="WhiteSmoke"></MenuItem>
+            <MenuItem Header="Конструктор" Click="constructorClick" Foreground="WhiteSmoke" Height="29" Margin="-0.2,0,-0.4,-0.2" VerticalAlignment="Top"></MenuItem>
             <Separator Width="3"/>
             <MenuItem Header="Заказ" Click="orderClick" Foreground="WhiteSmoke"  ></MenuItem>
             <Separator Width="7"/>

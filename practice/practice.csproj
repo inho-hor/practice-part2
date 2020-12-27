@@ -79,6 +79,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="addCloth.xaml.cs">
+      <DependentUpon>addCloth.xaml</DependentUpon>
+    </Compile>
     <Compile Include="admin.xaml.cs">
       <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     </Compile>
     <Compile Include="clothWarehouse.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="constructor.xaml.cs">
+      <DependentUpon>constructor.xaml</DependentUpon>
     </Compile>
     <Compile Include="customer.xaml.cs">
       <DependentUpon>customer.xaml</DependentUpon>
@@ -145,7 +151,15 @@
     <Compile Include="ware.xaml.cs">
       <DependentUpon>ware.xaml</DependentUpon>
     </Compile>
+    <Page Include="addCloth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="constructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
