@@ -43,23 +43,39 @@ namespace practice
                 products.Visibility = Visibility.Visible;
                 cloths.Visibility = Visibility.Collapsed;
                 furnitures.Visibility = Visibility.Collapsed;
+                orders.Visibility = Visibility.Collapsed;
                 var Product = practiceEntities.product;
                 products.ItemsSource = Product.ToList();
         }
 
         private void clothClick(object sender, RoutedEventArgs e)
         {
-
+            products.Visibility = Visibility.Collapsed;
+            cloths.Visibility = Visibility.Visible;
+            furnitures.Visibility = Visibility.Collapsed;
+            orders.Visibility = Visibility.Collapsed;
+            var Cloth = practiceEntities.cloth;
+            cloths.ItemsSource = Cloth.ToList();
         }
 
         private void furnitureClick(object sender, RoutedEventArgs e)
         {
-
+            products.Visibility = Visibility.Collapsed;
+            cloths.Visibility = Visibility.Collapsed;
+            furnitures.Visibility = Visibility.Visible;
+            orders.Visibility = Visibility.Collapsed;
+            var Furniture = practiceEntities.furniture;
+            furnitures.ItemsSource = Furniture.ToList();
         }
 
         private void ordersClick(object sender, RoutedEventArgs e)
         {
-
+            products.Visibility = Visibility.Collapsed;
+            cloths.Visibility = Visibility.Collapsed;
+            furnitures.Visibility = Visibility.Collapsed;
+            orders.Visibility = Visibility.Visible;
+            var Order = practiceEntities.order;
+            orders.ItemsSource = Order.ToList();
         }
 
         private void constructorClick(object sender, RoutedEventArgs e)
