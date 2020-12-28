@@ -15,10 +15,11 @@
                     <GradientStop Color="darkBlue" Offset="2" />
                 </LinearGradientBrush>
             </Canvas.Background>
-            <Border BorderBrush="Black"  BorderThickness="1,1,1,1" Visibility="Visible" Width="550" Height="300" Margin="229,45,0,0">
-                
+            <Border BorderBrush="Black" BorderThickness="1,1,1,1" Visibility="Visible" Width="550" Height="300" Margin="229,45,0,0">
+
             </Border>
         </Canvas>
+        <StackPanel x:Name="panel1" Visibility="Visible" Width="550" Height="270" Margin="220,0,0,0" ></StackPanel>
 
         <TextBlock HorizontalAlignment="Left" Margin="29,29,-91,49" TextWrapping="Wrap" Text="Название изделия" VerticalAlignment="Top"
                     Height="20" Width="120" FontSize="12" FontFamily="Georgia"/>

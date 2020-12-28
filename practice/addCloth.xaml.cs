@@ -30,6 +30,7 @@ namespace practice
         private void choose_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JPEG images|*.jpg";
             openFileDialog.InitialDirectory = @"C:\Users";
 
             openFileDialog.ShowDialog();
