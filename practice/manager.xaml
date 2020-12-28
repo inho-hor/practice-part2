@@ -7,6 +7,131 @@
         mc:Ignorable="d"
         Title="manager" Height="450" Width="800">
     <Grid>
-        
+        <Canvas Name="_canvas" Height="Auto" Margin="0,0,-0.2,0.4" Grid.RowSpan="2" Grid.ColumnSpan="3">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="MediumPurple" Offset="0" />
+                    <GradientStop Color="darkBlue" Offset="2" />
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
+
+        <Menu FontSize="14" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" BorderBrush="Black" Background="#222" 
+            BorderThickness="1,1,1,1">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Списки" Click="MenuItem_Click" Foreground="WhiteSmoke" Height="29" Margin="0,0,0,-0.2" VerticalAlignment="Top">
+                <MenuItem Header="Изделия" Click="productClick" BorderBrush="Black" Background="#222"></MenuItem>
+                <MenuItem Header="Ткани" Click="clothClick" BorderBrush="Black" Background="#222"></MenuItem>
+                <MenuItem Header="Фурнитура" Click="furnitureClick" BorderBrush="Black" Background="#222"></MenuItem>
+            </MenuItem>
+            <Separator Width="3"/>
+            <MenuItem Header="Склад" Click="wareClick" Foreground="WhiteSmoke"  >
+                <MenuItem Header="Ткани" Click="clothWareClick" BorderBrush="Black" Background="#222"></MenuItem>
+                <MenuItem Header="Фурнитура" Click="furnitureWareClick" BorderBrush="Black" Background="#222"></MenuItem>
+            </MenuItem>
+            <Separator Width="3"/>
+
+            <MenuItem Header="Заказы" Click="orderClick" Foreground="WhiteSmoke"  ></MenuItem>
+            <Separator Width="7"/>
+            <MenuItem Header="Выход" Click="exitClick" Foreground="WhiteSmoke"></MenuItem>
+        </Menu>
+
+        <DataGrid x:Name="products" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left" CanUserAddRows="False" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код" Binding="{Binding Path=idProduct, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="30"></DataGridTextColumn>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Path=article, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Path=nameProduct, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="95"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ширина" Binding="{Binding Path=width, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Длина" Binding="{Binding Path=length, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
+                <DataGridTextColumn Header="Изображение" Binding="{Binding Path=image, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Комментарий" Binding="{Binding Path=comment, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="90"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="cloths" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  AutoGenerateColumns="False" CanUserAddRows="False" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код" Binding="{Binding Path=idCloth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="30"></DataGridTextColumn>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Path=article, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Path=nameCloth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="95"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цвет" Binding="{Binding Path=color, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="40"></DataGridTextColumn>
+                <DataGridTextColumn Header="Рисунок" Binding="{Binding Path=drawing, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="60"></DataGridTextColumn>
+                <DataGridTextColumn Header="Изображение" Binding="{Binding Path=image, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Состав" Binding="{Binding Path=structure, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ширина" Binding="{Binding Path=width, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Длина" Binding="{Binding Path=length, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Path=price, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="40"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="furnitures" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  AutoGenerateColumns="False" CanUserAddRows="False" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Код" Binding="{Binding Path=idFurniture, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="30"></DataGridTextColumn>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Path=article, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Path=nameFurniture, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="95"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Path=typeFurniture, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="30"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ширина" Binding="{Binding Path=width, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Длина" Binding="{Binding Path=length, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
+                <DataGridTextColumn Header="Вес" Binding="{Binding Path=weight, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="30"></DataGridTextColumn>
+                <DataGridTextColumn Header="Изображение" Binding="{Binding Path=image, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Path=price, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="40"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="orders" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  AutoGenerateColumns="False" CanUserAddRows="False" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Path=numberOrder, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Path=date, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="35"></DataGridTextColumn>
+                <DataGridTextColumn Header="Этап выполнения" Binding="{Binding Path=executionStage, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="110"></DataGridTextColumn>
+                <DataGridTextColumn Header="Заказчик" Binding="{Binding Path=customer, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="65"></DataGridTextColumn>
+                <DataGridTextColumn Header="Менеджер" Binding="{Binding Path=manager, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Path=price, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="40"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="clothWare" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  AutoGenerateColumns="False" CanUserAddRows="False" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Рулон" Binding="{Binding Path=idRoll, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ткань" Binding="{Binding Path=idCloth, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ширина" Binding="{Binding Path=width, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Длина" Binding="{Binding Path=length, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="45"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="furnitureWare" Visibility="Hidden" HorizontalGridLinesBrush="Gray" Height="317" Width="795" Margin="0,47,-500,0"
+                  VerticalAlignment="Top" HorizontalAlignment="Left"
+                  AutoGenerateColumns="False" CanUserAddRows="False" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" Padding="0,0,0,0" BorderBrush="Black"
+                  HorizontalScrollBarVisibility="Disabled" BorderThickness="1,1,1,1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Партия" Binding="{Binding Path=idParty, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="55"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фурнитура" Binding="{Binding Path=idFurniture, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Path=QTY, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="75"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
